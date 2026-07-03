@@ -51,7 +51,7 @@ db.restaurants.find ({name: /Reg/},{_id: 0, restaurant_id:1, name:1, borough:1, 
 db.restaurants.find({ $and: [{$or: [{cuisine: 'American'},{cuisine:'Chinese'}],borough:'Bronx'}]},{_id:0})
 
 // 18. Trobar restaurant_id, name, borough i cuisine per a Staten Island, Queens, Bronx o Brooklyn.
-db.restaurants.find({ borough: {$in: ['Staten Island','Queens','Bronx','Brooklyn']}},{_id:0, restaurant_id:1, name:1, borough:1, cuisine: 1})
+//db.restaurants.find({ borough: {$in: ['Staten Island','Queens','Bronx','Brooklyn']}},{_id:0, restaurant_id:1, name:1, borough:1, cuisine: 1})
 
 // 19. Trobar restaurant_id, name, borough i cuisine per a restaurants que NO són d'aquests barris.
 
