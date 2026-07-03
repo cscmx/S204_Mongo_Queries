@@ -1,11 +1,11 @@
 // 1. Mostrar tots els documents en la col·lecció Restaurants.
-db.restaurants.find({},{_id: 0})
+db.restaurants.find({},{_id: 0});
 
 // 2. Mostrar el restaurant_id i name per tots els documents en la col·lecció Restaurants.
-db.restaurants.find({},{_id: 0, restaurant_id:true, name: true}
+db.restaurants.find({},{_id: 0, restaurant_id:true, name: true};
 
 // 3. Mostrar el restaurant_id, name, borough i cuisine.
-db.restaurants.find({},{_id: 0, restaurant_id:true, name:true, borough:true, cuisine: true}
+db.restaurants.find({},{_id: 0, restaurant_id:true, name:true, borough:true, cuisine: true};
 
 // 4. Mostrar restaurant_id, name, borough i zip code.
 
