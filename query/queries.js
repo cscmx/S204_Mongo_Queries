@@ -14,7 +14,7 @@ db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, "address.zip
 db.restaurants.find({},{_id: 0, borough: 'Bronx'})
 
 // 6. Mostrar els primers 5 restaurants que estan en el Bronx.
-db.restaurants.find({},{id: 0, borough: 'Bronx'}).limit(5)
+db.restaurants.find({},{_id: 0, borough: 'Bronx'}).limit(5)
 
 // 7. Mostrar el pròxims 5 restaurants després de saltar els primers 5 del Bronx.
 
