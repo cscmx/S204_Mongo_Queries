@@ -34,6 +34,17 @@
 4. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, "address.zipcode":1})`
+- ⏱️ **Execution time**: 1 ms
+- 📚 **Documents returned**: 664
+- 🔍 **Documents examined**: 664
+- 🛠️ **Execution stage**: PROJECTION_DEFAULT
+
+## ✅ No significant issues detected
+
+
+5. ## 📊 Query Performance Report
+
+- 🧪 **Query**: `db.restaurants.find({},{_id: 0, borough: 'Bronx'})`
 - ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
