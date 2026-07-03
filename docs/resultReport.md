@@ -39,3 +39,11 @@
 ---
 - ✔️ OK - Query **[ 8 ]**
 
+---
+- ❌ MISMATCH - Query **[ 9 ]** Result does not match expected output.
+
+
+🔢 Different result lengths: 
+- **Expected:** 1
+- **Got:** 2
+
