@@ -23,7 +23,7 @@
 3. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -45,7 +45,7 @@
 5. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, borough: 'Bronx'})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_DEFAULT
@@ -78,7 +78,7 @@
 8. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$gt : 90}},{_id: 0})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -101,7 +101,7 @@ db.restaurants.createIndex({ grades.score: 1 });
 9. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$gt: 90, $lt:100}}, {_id:0})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -119,5 +119,16 @@ Consider creating these indexes:
 ```javascript
 db.restaurants.createIndex({ grades.score: 1 });
 ```
+
+
+10. ## 📊 Query Performance Report
+
+- 🧪 **Query**: `db.restaurants.find({"location.coordinates.0" : {$lt : -95.754168}},{_id:0})`
+- ⏱️ **Execution time**: 1 ms
+- 📚 **Documents returned**: 0
+- 🔍 **Documents examined**: 664
+- 🛠️ **Execution stage**: PROJECTION_SIMPLE
+
+## ✅ No significant issues detected
 
 
