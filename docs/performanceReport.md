@@ -23,7 +23,7 @@
 3. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 0 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -34,7 +34,7 @@
 4. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, "address.zipcode":1})`
-- ⏱️ **Execution time**: 0 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_DEFAULT
@@ -45,7 +45,7 @@
 5. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, borough: 'Bronx'})`
-- ⏱️ **Execution time**: 0 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_DEFAULT
@@ -78,7 +78,7 @@
 8. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$gt : 90}},{_id: 0})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -101,7 +101,7 @@ db.restaurants.createIndex({ grades.score: 1 });
 9. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$gt: 90, $lt:100}}, {_id:0})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -185,7 +185,7 @@ db.restaurants.createIndex({ grades.score: 1 });
 13. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find ({cuisine:{$ne: 'American'},"grades.grade":'A', borough: {$ne: 'Brooklyn'}},{_id:0}).sort({cuisine:-1})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 318
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: SORT
@@ -204,8 +204,8 @@ db.restaurants.createIndex({ cuisine: 1 });
 
 14. ## 📊 Query Performance Report
 
-- 🧪 **Query**: `db.restaurants.find ({name: /^Wil/},{_id:0, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 0 ms
+- 🧪 **Query**: `db.restaurants.find ({name: /^Wil/},{_id:0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -227,8 +227,8 @@ db.restaurants.createIndex({ name: 1 });
 
 15. ## 📊 Query Performance Report
 
-- 🧪 **Query**: `db.restaurants.find ({name: /ces$/},{_id: 0, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 0 ms
+- 🧪 **Query**: `db.restaurants.find ({name: /ces$/},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -245,6 +245,52 @@ db.restaurants.createIndex({ name: 1 });
 Consider creating these indexes:
 ```javascript
 db.restaurants.createIndex({ name: 1 });
+```
+
+
+16. ## 📊 Query Performance Report
+
+- 🧪 **Query**: `db.restaurants.find ({name: /Reg/},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
+- ⏱️ **Execution time**: 1 ms
+- 📚 **Documents returned**: 4
+- 🔍 **Documents examined**: 664
+- 🛠️ **Execution stage**: PROJECTION_SIMPLE
+
+## 🚨 Performance Issues
+
+### ⚠️ High Priority Issues
+- ⚠️ Examined 664 docs to return 4 (ratio 166.0:1)
+
+### ℹ️ Recommendations
+- ‼️ Filtering on unindexed field 'name' - performance may suffer.
+
+### 💡 Suggested Indexes
+Consider creating these indexes:
+```javascript
+db.restaurants.createIndex({ name: 1 });
+```
+
+
+17. ## 📊 Query Performance Report
+
+- 🧪 **Query**: `db.restaurants.find({ $and: [{$or: [{cuisine: 'American'},{cuisine:'Chinese'}],borough:'Bronx'}]},{_id:0})`
+- ⏱️ **Execution time**: 0 ms
+- 📚 **Documents returned**: 22
+- 🔍 **Documents examined**: 664
+- 🛠️ **Execution stage**: PROJECTION_SIMPLE
+
+## 🚨 Performance Issues
+
+### ⚠️ High Priority Issues
+- ⚠️ Examined 664 docs to return 22 (ratio 30.2:1)
+
+### ℹ️ Recommendations
+- ‼️ Filtering on unindexed field 'cuisine' - performance may suffer.
+
+### 💡 Suggested Indexes
+Consider creating these indexes:
+```javascript
+db.restaurants.createIndex({ cuisine: 1 });
 ```
 
 
