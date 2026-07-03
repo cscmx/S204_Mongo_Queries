@@ -82,3 +82,11 @@
 - **Expected:** 305
 - **Got:** 664
 
+---
+- ❌ MISMATCH - Query **[ 20 ]** Result does not match expected output.
+
+
+🔢 Different result lengths: 
+- **Expected:** 612
+- **Got:** 305
+
