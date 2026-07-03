@@ -1,5 +1,5 @@
 // 1. Mostrar tots els documents en la col·lecció Restaurants.
-db.restaurants.find({},{_id: 0});
+db.nyc.find({},{_id: 0});
 
 // 2. Mostrar el restaurant_id i name per tots els documents en la col·lecció Restaurants.
 db.restaurants.find({},{_id: 0, restaurant_id:true, name: true};
