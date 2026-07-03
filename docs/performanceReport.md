@@ -23,7 +23,7 @@
 3. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -135,7 +135,7 @@ db.restaurants.createIndex({ grades.score: 1 });
 11. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find ({$and: [ {cuisine:{$ne: 'American'}},{"grades.score":{$gt: 70}},{"location.coordinates.0": {$lt: -65.754168}}]},{_id:0})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 1
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -205,7 +205,7 @@ db.restaurants.createIndex({ cuisine: 1 });
 14. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find ({name: /^Wil/},{_id:0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -228,7 +228,7 @@ db.restaurants.createIndex({ name: 1 });
 15. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find ({name: /ces$/},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -251,7 +251,7 @@ db.restaurants.createIndex({ name: 1 });
 16. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find ({name: /Reg/},{_id: 0, restaurant_id:1, name:1, borough:1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 4
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
