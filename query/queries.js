@@ -17,7 +17,7 @@ db.restaurants.find({},{_id: 0, borough: 'Bronx'})
 db.restaurants.find({},{_id: 0, borough: 'Bronx'}).limit(5)
 
 // 7. Mostrar el pròxims 5 restaurants després de saltar els primers 5 del Bronx.
-
+db.restaurants.find({},{_id: 0, borough: 'Bronx'}).skip(5).limit(5)
 
 // 8. Trobar els restaurants amb un score de més de 90.
 
