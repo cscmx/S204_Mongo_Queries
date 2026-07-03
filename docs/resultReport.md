@@ -36,3 +36,6 @@
 - **Expected:** {"address":{},"borough":"Bronx","cuisine":"American","grades":[{},{}],"location":{},"name":"Manhem Club","restaurant_id":40364363}
 - **Actual:** {"borough":"Bronx"}
 
+---
+- ✔️ OK - Query **[ 8 ]**
+
